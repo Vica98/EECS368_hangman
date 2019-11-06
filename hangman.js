@@ -4,6 +4,7 @@ var secretWord;
 var wrongGuess;
 var playerLost;
 var playerWon;
+var usedLetters;
 function startGame(){
    //performing initial checks
    if(playerWon){
@@ -46,6 +47,7 @@ function startGame(){
     m_message.value="";
     playerLost=false;
     playerWon=false;
+    usedLetters=[];
     for(let i=0;i<m_word.length;i++)
     {m_output.value += "-"};
     console.log(m_output.value);
@@ -59,22 +61,33 @@ function startGame(){
       m_output = document.getElementById("out");
       m_guessed =document.getElementById("guess").value;
       console.log(m_guessed);
-      let foundLetter = false;
-      for(let i=0;i<m_word.length;i++){
-        if(m_guessed==m_word.charAt(i)){
-          foundLetter = true;
-          console.log(foundLetter);
-          console.log(m_word.charAt(i));
-          break;
-        }else{
-          foundLetter = false;
-          console.log(foundLetter);
+      var alreadyGuessed=false;
+      for(let i = 0; i < usedLetters.length; i++) {
+        if(usedLetters[i]==m_guessed){
+          alreadyGuessed=true;
         }
       }
-    if(!foundLetter){
-    wrongGuess++;
-    }
-    return foundLetter;
+      usedLetters.push(m_guessed);
+      let foundLetter = false;
+      if(alreadyGuessed){
+        alert("You already guessed this letter, try something else");
+      }else {
+        for(let i =0 ;i <m_word.length ; i++){
+          if(m_guessed==m_word.charAt(i)){
+            foundLetter = true;
+            console.log(foundLetter);
+            console.log(m_word.charAt(i));
+            break;
+          }else{
+            foundLetter = false;
+            console.log(foundLetter);
+          }
+        }
+      if(!foundLetter){
+      wrongGuess++;
+      }
+      }
+      return foundLetter;
     }
 
     changeOutput = () => {
