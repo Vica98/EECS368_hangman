@@ -1,17 +1,28 @@
 
 //function start all over when called, figure out how to save data...maybe call change output with string and return changed string
 var secretWord;
-function startGame(firstClick)
-{
-  if(firstClick==true)
-  {
-    console.log("hi");
-    var theWord = createGame();
-    secretWord=theWord;
-  }
-  var found_it = compareInput(secretWord);
-  if(found_it==true){
-  changeOutput();
+var wrongGuess;
+function startGame(){
+   //performing initial checks
+  m_output = document.getElementById("out").value;
+  if(m_output==""){
+    alert("Start the game before guessing");
+  }else {
+    m_guessed =document.getElementById("guess").value;
+    if(m_guessed.length>1){
+      alert("You can only guess one letter at a time!");
+    }else {
+      if(m_guessed==""){
+      alert("Guess something, don't leave this blank!");
+      }else {
+        var found_it = compareInput(secretWord);
+        if(found_it==true){
+        changeOutput();
+      }else {
+        changeImage();
+      }
+      }
+    }
   }
 }
     createGame = () =>{
@@ -22,7 +33,8 @@ function startGame(firstClick)
     for(let i=0;i<m_word.length;i++)
     {m_output.value += "-"};
     console.log(m_output.value);
-    return m_word;
+    secretWord=m_word;
+    wrongGuess=0;
     }
 
     compareInput = (m_word) =>{
@@ -43,6 +55,9 @@ function startGame(firstClick)
           console.log(foundLetter);
         }
       }
+    if(!foundLetter){
+    wrongGuess++;
+    }
     return foundLetter;
     }
 
@@ -61,4 +76,9 @@ function startGame(firstClick)
         }
       }
       console.log(m_output.value);
+    }
+
+    function changeImage()
+    {
+      console.log("chagning imageeeeeeeeeee");
     }
