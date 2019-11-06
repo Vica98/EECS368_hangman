@@ -3,31 +3,37 @@
 var secretWord;
 var wrongGuess;
 var playerLost;
+var playerWon;
 function startGame(){
    //performing initial checks
-   if(playerLost){
-     alert("You lost, click on start to play again");
+   if(playerWon){
+      alert("You already won, click on start to play again");
    }else {
-     m_output = document.getElementById("out").value;
-     if(m_output==""){
-       alert("Start the game before guessing");
+     if(playerLost){
+       alert("You lost, click on start to play again");
      }else {
-       m_guessed =document.getElementById("guess").value;
-       if(m_guessed.length>1){
-         alert("You can only guess one letter at a time!");
+       m_output = document.getElementById("out").value;
+       if(m_output==""){
+         alert("Start the game before guessing");
        }else {
-         if(m_guessed==""){
-         alert("Guess something, don't leave this blank!");
+         m_guessed =document.getElementById("guess").value;
+         if(m_guessed.length>1){
+           alert("You can only guess one letter at a time!");
          }else {
-           var found_it = compareInput(secretWord);
-           if(found_it==true){
-           changeOutput();
-         }else {
-           changeImage();
-         }
+           if(m_guessed==""){
+           alert("Guess something, don't leave this blank!");
+           }else {
+             var found_it = compareInput(secretWord);
+             if(found_it==true){
+             changeOutput();
+           }else {
+             changeImage();
+           }
+           }
          }
        }
      }
+
    }
 
 }
@@ -39,6 +45,7 @@ function startGame(){
     m_message= document.getElementById("message");
     m_message.value="";
     playerLost=false;
+    playerWon=false;
     for(let i=0;i<m_word.length;i++)
     {m_output.value += "-"};
     console.log(m_output.value);
@@ -73,9 +80,8 @@ function startGame(){
     changeOutput = () => {
     console.log(m_output.value);
     m_output.value= document.getElementById("out").value;
+    m_message.value = document.getElementById("message").value;
     console.log(m_output.value);
-      var left_side_word;
-      var right_side_word;
       for(let i=0;i<m_word.length;i++)
       {
         if(m_word.charAt(i)==m_guessed)
@@ -85,6 +91,10 @@ function startGame(){
         }
       }
       console.log(m_output.value);
+      if(m_output.value==secretWord){
+        playerWon=true;
+        m_message.value="YOU WON! to play again click on start";
+      }
     }
 
     function changeImage()
