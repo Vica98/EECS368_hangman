@@ -1,0 +1,4 @@
+List of words: https://github.com/first20hours/google-10000-english
+
+Sources used:
+To transform list of words to array: https://stackoverflow.com/questions/39323827/add-quotes-to-each-item-in-a-text-file

@@ -1,6 +1,6 @@
-"about",
-search"
-other"
+about
+search
+other
 which
 their
 there
