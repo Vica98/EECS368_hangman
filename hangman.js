@@ -43,6 +43,8 @@ function startGame(){
     m_message.value="";
     playerLost=false;
     playerWon=false;
+    theImage = document.getElementById("theImage");
+    theImage.src = "img5.jpg";
     usedLetters=[];
     for(let i=0;i<m_word.length;i++)
     {m_output.value += "-"};

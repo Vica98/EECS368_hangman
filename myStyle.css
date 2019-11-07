@@ -1,0 +1,71 @@
+body
+{
+text-align: center;
+  background-color: lightgray;
+}
+
+output.word
+{
+  position: relative;
+  left: 150px;
+  top: 100px;
+  font-family: georgia;
+  font-size: 60pt;
+}
+
+output.message
+{
+  position: relative;
+  left: 150px;
+  top: 100px;
+  font-family: georgia;
+  font-size: 20pt;
+}
+
+h1
+{
+  font-family: georgia;
+  font-size: 15pt;
+}
+
+h2
+{
+  font-family: georgia;
+  font-size: 10pt;
+}
+
+div
+{
+  position: relative;
+  top:220px;
+}
+
+button.button1
+{
+  padding: 10px;
+  background-color: lightgreen;
+  border-radius:8px;
+}
+
+button.button2
+{
+  padding: 3px;
+  background-color: coral;
+  border-radius:8px;
+}
+
+img
+{
+  position: absolute;
+  left: 250px;
+    border-radius:12px;
+}
+
+input
+{
+  font-family: georgia;
+  font-size: 15pt;
+  border-radius:12px;
+  width: 30px;
+  text-align:center;
+}

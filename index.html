@@ -2,25 +2,27 @@
 <head>
 <title>Hangman Game</title>
 <script type="text/javascript" src="hangman.js"></script>
+<link href="myStyle.css" rel="stylesheet" type="text/css"/>
 </head>
 
 <body>
-Welome to hangman, click on start when you are ready
+<h1>Hangman 368</h1>
+<br>
+<button class="button1" onclick="createGame()">START</button>
 <br>
 <br>
-<button onclick="createGame()">START</button>
-<br>
-<br>
-<output type="text" id="out"></output>
-<br>
-<output type="text" id="message"></output>
+
+<output class="message"type="text" id="message"></output>
 <br>
 <img src="img5.jpg" id="theImage"></img>
+<output class="word"type="text" id="out"></output>
+<div>
+<h2>Guess a letter: </h2>
+<input id="guess"></input>
 <br>
-Guess a letter: <input id="guess"></input>
 <br>
-<br>
-<button onclick="startGame()">Guess!</button>
+<button class="button2" onclick="startGame()">Guess!</button>
+</div>
 </body>
 
 </html>
