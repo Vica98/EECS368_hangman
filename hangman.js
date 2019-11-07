@@ -1,5 +1,4 @@
 
-//function start all over when called, figure out how to save data...maybe call change output with string and return changed string
 var secretWord;
 var wrongGuess;
 var playerLost;
@@ -39,7 +38,8 @@ function startGame(){
 
 }
     createGame = () =>{
-    m_word = "hello";
+    m_word = "testing";
+    selectWord();
     console.log("did it");
     m_output = document.getElementById("out");
     m_output.value="";
@@ -130,4 +130,17 @@ function startGame(){
       }else {
         console.log("we shouldnt be here");
       }
+    }
+
+    function selectWord()
+    {
+      console.log("the rand num is");
+      var words = ["hello",
+      "testing",
+      "here",
+      "vica"];
+      var randNum = Math.floor((Math.random() * 3) + 0);
+
+      console.log(words[randNum]);
+
     }
