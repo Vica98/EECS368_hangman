@@ -33,11 +33,9 @@ function startGame(){
          }
        }
      }
-
    }
-
 }
-    createGame = () =>{
+    function createGame(){
     m_word = selectWord();
     m_output = document.getElementById("out");
     m_output.value="";
@@ -52,7 +50,7 @@ function startGame(){
     wrongGuess=0;
     }
 
-    compareInput = (m_word) =>{
+    function compareInput(m_word){
       m_output = document.getElementById("out");
       m_guessed =document.getElementById("guess").value;
       var alreadyGuessed=false;
@@ -81,7 +79,7 @@ function startGame(){
       return foundLetter;
     }
 
-    changeOutput = () => {
+    function changeOutput(){
     m_output.value= document.getElementById("out").value;
     m_message.value = document.getElementById("message").value;
       for(let i=0;i<m_word.length;i++)
