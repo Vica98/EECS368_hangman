@@ -623,6 +623,5 @@ function startGame(){
       shows`;
       var arrayWords = text.split("\n");
       var arrayList=arrayWords.map(function(a){return a.trim()});
-      console.log(arrayList[randNum]);
       return(arrayList[randNum]);
     }
